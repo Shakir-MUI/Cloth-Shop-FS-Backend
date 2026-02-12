@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from cloudinary.models import CloudinaryField
 
 User = get_user_model()
 
@@ -50,10 +51,13 @@ class Product(models.Model):
     brand = models.CharField(max_length=100)
     
     # Product images
-    image = models.ImageField(upload_to='products/', null=True, blank=True)
-    image2 = models.ImageField(upload_to='products/', null=True, blank=True)
-    image3 = models.ImageField(upload_to='products/', null=True, blank=True)
-    
+    # image = models.ImageField(upload_to='products/', null=True, blank=True)
+    # image2 = models.ImageField(upload_to='products/', null=True, blank=True)
+    # image3 = models.ImageField(upload_to='products/', null=True, blank=True)
+    image = models.URLField(max_length=500)
+    image2 = models.URLField(max_length=500, blank=True, null=True)
+    image3 = models.URLField(max_length=500, blank=True, null=True)
+
     # Ratings
     average_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.0)
     total_reviews = models.PositiveIntegerField(default=0)
