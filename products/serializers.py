@@ -103,11 +103,11 @@ class ProductListSerializer(serializers.ModelSerializer):
 
     def get_display_image(self, obj):
         if obj.image:
-            return obj.image.url
+            return obj.image
         if obj.image2:
-            return obj.image2.url
+            return obj.image2
         if obj.image3:
-            return obj.image3.url
+            return obj.image3
         return None
 
 
